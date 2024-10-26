@@ -1,3 +1,4 @@
+import DisplayingProducts from "./components/DisplayingProducts";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
@@ -8,7 +9,7 @@ export default function Home() {
         <Header/>
         <section className='home-page-section'>
             <div className='products-wrapper'>
-               {/* ProductContainer */}
+               <DisplayingProducts/>
             </div>
         </section>
         <Footer/>
