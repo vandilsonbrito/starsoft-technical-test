@@ -1,0 +1,91 @@
+$skeleton-bg-color: #aaaaaa
+
+.skeleton-product-container
+    width: 315px
+    height: 500px 
+    background-color: var(--custom-blackish)
+    border-radius: 8px 
+    padding: 20px 24px 
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1)
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+
+    @media (min-width: 1500px)
+        width: 345px
+        height: 555px
+        padding: 30px 
+
+    .skeleton-item-img-wrapper
+        width: 270px
+        height: 260px
+        border-radius: 8px
+        background-color: var(--custom-blueish)
+        animation: fading 1.5s infinite
+        @include flex-box(row, center, center)
+
+        @media (min-width: 1500px)
+            width: 100%
+            height: 268px
+
+        .skeleton-item-img
+            width: 220px
+            height: 220px
+            background-color: $skeleton-bg-color
+
+            @media (min-width: 1500px)
+                width: 100%
+                height: 100%
+
+    .skeleton-item-info-container
+        width: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 20px
+
+        @media (min-width: 1500px)
+            gap: 26px
+
+        .skeleton-item-info-wrapper
+            display: flex
+            flex-direction: column
+            justify-content: flex-start
+            align-items: flex-start
+            gap: 10px
+            width: 100%
+
+            .skeleton-item-title
+                width: 80% 
+                height: 20px 
+                background-color: $skeleton-bg-color 
+                border-radius: 3px
+                animation: fading 1.5s infinite 
+
+            .skeleton-item-description
+                width: 100%
+                height: 15px
+                background-color: $skeleton-bg-color
+                border-radius: 3px 
+                animation: fading 1.5s infinite 
+
+        .skeleton-item-price-wrapper
+            width: 100%
+            display: flex
+            align-items: flex-start
+            justify-content: flex-start
+            gap: 8px
+
+            .skeleton-price-icon
+                width: 23px 
+                height: 23px 
+                background-color: $skeleton-bg-color 
+                border-radius: 50% 
+                animation: fading 1.5s infinite 
+
+            .skeleton-price
+                width: 60px 
+                height: 20px 
+                background-color: $skeleton-bg-color 
+                border-radius: 3px
