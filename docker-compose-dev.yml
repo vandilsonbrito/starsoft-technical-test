@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: .
+      dockerfile: Dockerfile  # Caminho para o arquivo Dockerfile
+    ports:
+      - "3000:3000"  # Mapeia a porta 3000 do container para a porta 3000 do host
+    volumes:
+      - .:/app  # Monta o diretório atual no container para permitir hot reload
+    command: npm run dev  # Comando para rodar o Next.js em modo de desenvolvimento

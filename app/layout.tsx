@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.sass";
+import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";  
 
 const poppins = Poppins({ weight: ["400", "500", "600", "700"], subsets: ["latin"] });
 
@@ -12,7 +13,7 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: "Starsoft",
-  description: "Starsoft NFT Marketplace",
+  description: "Starsoft NFTs Marketplace",
 };
 
 export default function RootLayout({
@@ -23,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        {children}
+        <ReactQueryProvider>
+            {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );
