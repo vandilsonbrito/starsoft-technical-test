@@ -9,8 +9,8 @@
 body
   max-width: 100vw
   overflow-x: hidden
-  color: var(--foreground)
-  background: var(--background)
+  color: white
+  background: var(--custom-background)
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
@@ -18,4 +18,12 @@ body
   box-sizing: border-box
   padding: 0
   margin: 0
+
+  @import './styles/mixins/mixins.sass'
+  @import './styles/pages/home.sass'
+  @import './styles/components/footer.sass'
+  @import './styles/components/header.sass'
+  @import './styles/components/product-container.sass'
+  @import './styles/components/skeleton-loading-fallback.sass'
+  @import './styles/generic/generic-btn-styles.sass'
 
