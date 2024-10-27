@@ -8,7 +8,7 @@
     padding: 20px 24px
     @include flex-box(column, space-between, center)
 
-    @media (min-width: 1500px) 
+    @include responsive-to(large)  
         width: 345px
         height: 555px
         padding: 30px
@@ -25,7 +25,7 @@
             width: 200px
             height: 200px
         
-        @media (min-width: 1500px) 
+        @include responsive-to(large)  
             width: 100%
             height: 268px
         
@@ -35,7 +35,7 @@
         width: 100%
         gap:20px
 
-        @media (min-width: 1500px) 
+        @include responsive-to(large)
             gap: 26px
         
 
