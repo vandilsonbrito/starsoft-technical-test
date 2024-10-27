@@ -4,16 +4,19 @@ import { useProductData } from '@/utils/hooks/useProductsData';
 import ProductContainer from './ProductContainer';
 import { ItemsData } from '@/utils/types/types';
 import ProductFallbackContainer from './ProductFallbackContainer';
+import { useSelector  } from 'react-redux';
+import { RootState } from '../../utils/redux/store'; 
 
 export default function DisplayingProducts() {
 
-    const { data } = useProductData();
+    const limitValue = useSelector((state: RootState) => state.limit.value);
+    const { data } = useProductData(limitValue);
     const [items, setItems] = useState<ItemsData[] | []>([])
 
     useEffect(() => {
-        console.log("Data", data?.data)
+        console.log("Data", data)
         if(data) {
-            setItems(data.data);
+            setItems(data.data)
         }
       }, [data]);
 
