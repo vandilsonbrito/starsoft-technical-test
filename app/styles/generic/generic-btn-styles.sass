@@ -11,10 +11,11 @@
     font-weight: 600
     font-family: inherit
 
-    &:hover 
-        background-color: var(--custom-brownish)
-        transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out
-    
+    @media (min-width: 1024px) 
+        &:hover 
+            background-color: var(--custom-brownish)
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out
+        
 
     &:active 
         transform: scale(0.98)
