@@ -8,7 +8,7 @@
     min-height: calc(100vh - 117px)
     padding: 8px
     overflow: hidden
-    @include flex-box(row, center, flex-start)
+    @include flex-box(column, center, center)
 
     @media (min-width: 600px) 
         padding: 20px
@@ -36,4 +36,8 @@
         @media (min-width: 1500px) 
             grid-template-columns: repeat(4, 1fr)
         
+    .load-more-container
+        width: 100vw
+        @include flex-box(row, center, center)
+        padding: 100px 0
     
