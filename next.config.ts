@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'softstar.s3.amazonaws.com'
+        protocol: "https",
+        hostname: "softstar.s3.amazonaws.com"
       },
     ],
   },
