@@ -1,11 +1,11 @@
 // src/redux/store.js
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-/* import cartReducer from './reducers/cartReducer'; */
+import { cartReducer } from './reducers/cartReducer';
 import quanityItemsLimit from './slices/quanityItemsLimitSlice'
 
 const rootReducer = combineReducers({
-    /* cart: cartReducer, */
+    cartItems: cartReducer,
     limit: quanityItemsLimit
 });
 

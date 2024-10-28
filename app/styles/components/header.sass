@@ -1,7 +1,7 @@
 .header 
     width: 100vw
     height: fit-content
-    padding: 20px 20px
+    padding: 20px 25px 20px 20px
     @include flex-box(row, space-between, center)
     border-bottom: 1px solid var(--custom-brownish)
     background-color: var(--custom-background-color)
@@ -10,9 +10,18 @@
     top: 0
 
     @media (min-width: 720px) 
-        padding: 20px 40px
-    
+        padding: 20px 50px 20px 40px
 
+        
+    button
+        @include flex-box(row, center, center)
+        gap: 5px
+        font-family: inherit
+        background: none
+        border: none
+        cursor: pointer
+        color: white
+        font-size: 1rem
 
 
 

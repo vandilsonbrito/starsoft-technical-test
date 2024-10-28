@@ -1,6 +1,6 @@
 
 .product-container 
-    width: 315px
+    width: 320px
     height: 500px
     background-color: var(--custom-blackish)
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1)
@@ -8,24 +8,23 @@
     padding: 20px 24px
     @include flex-box(column, space-between, center)
 
-    @media (min-width: 1500px) 
+    @include responsive-to(large)  
         width: 345px
         height: 555px
         padding: 30px
     
-
     .item-img-wrapper 
         width: 270px
         height: 260px
         border-radius: 8px
-        background-color: var(--custom-blueish)
+        background-color: var(--custom-background-color)
         @include flex-box(column, center, center)
 
         img 
             width: 200px
             height: 200px
         
-        @media (min-width: 1500px) 
+        @include responsive-to(large)  
             width: 100%
             height: 268px
         
@@ -35,7 +34,7 @@
         width: 100%
         gap:20px
 
-        @media (min-width: 1500px) 
+        @include responsive-to(large)
             gap: 26px
         
 

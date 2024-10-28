@@ -1,0 +1,134 @@
+.overlay-checkout 
+    width: 100%
+    height: 100vh
+    background-color: var(--custom-background-color)
+    color: white
+    padding: 50px 30px
+    position: fixed 
+    top: 0
+    right: 0
+    left: auto
+    z-index: 50
+    /* display: flex  */
+    flex-direction: column 
+    box-shadow: 10px 10px 60px #00000094
+    border-radius: 8px
+    border: none
+
+    @include responsive-to(tablet)
+        width: 40%
+    @include responsive-to(desktop)
+        width: 600px
+    @include responsive-to(large)
+        width: 679px
+
+    .checkout-header
+        width: 100%
+        height: 40px
+        @include flex-box(row, justify-start, center)
+        margin-bottom: 15px
+
+        .back-icon-button-wrapper
+            width: 40px
+            height: 40px
+            border: none
+            background: none
+            cursor: pointer
+
+            img
+                width: 100%
+        
+        p   
+            width: 100%
+            text-align: center
+
+
+    .checkout-items 
+        width: 100%
+        max-height: calc(100vh - 250px) 
+        padding: 25px 0px
+        margin: 5px 0
+        flex-grow: 1 
+        overflow-y: auto 
+        display: flex 
+        flex-direction: column 
+        gap: 10px
+        @include responsive-to(medium)
+            padding: 25px 20px
+
+        &::-webkit-scrollbar 
+            width: 8px
+
+        &::-webkit-scrollbar-track 
+            background: var(--custom-blackish)
+
+        &::-webkit-scrollbar-thumb 
+            background-color: var(--custom-orange)
+            border-radius: 4px
+            border: 2px solid var(--custom-blackish)
+
+        &::-webkit-scrollbar-thumb:hover 
+            background-color: var(--custom-orange)
+
+        scrollbar-width: thin
+        scrollbar-color: var(--custom-orange) var(--custom-blackish)
+
+        .empty-cart 
+            width: 100%
+            height: 100%
+            @include flex-box(column, center, center)
+            
+
+    .checkout-footer
+        width: 100%
+        @include flex-box(column, center, center)
+        gap: 40px
+        margin-top: 15px
+
+        .total-amount-wrapper
+            width: 100% 
+            @include flex-box(row, space-between, center)
+            
+            p
+                text-transform: uppercase
+                font-weight: 600
+
+            .total-amount-description
+                @include flex-box(row, center, center)
+                gap: 10px
+    
+        
+        .finalize-button 
+            color: white
+            font-size: 16px
+            border: none
+            border-radius: 5px
+            cursor: pointer
+            display: flex
+            align-items: center
+            justify-content: center
+            transition: background-color 0.3s ease
+
+            &.loading 
+                background-color: var(--custom-orange)
+
+            .spinner 
+                width: 18px
+                height: 18px
+                border: 3px solid rgba(255, 255, 255, 0.6)
+                border-top: 3px solid white
+                border-radius: 50%
+                animation: spin 0.7s linear infinite
+                margin-right: 8px
+        
+
+            @keyframes spin 
+                0% 
+                    transform: rotate(0deg)
+            
+                100% 
+                    transform: rotate(360deg)
+            
+            
+
+
