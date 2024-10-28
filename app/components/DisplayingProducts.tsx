@@ -6,6 +6,7 @@ import { ItemsFromData } from '@/utils/types/types';
 import ProductFallbackContainer from './ProductFallbackContainer';
 import { useSelector  } from 'react-redux';
 import { RootState } from '../../utils/redux/store'; 
+import FadeInOnScroll from './ItemAnimationEffect';
 
 export default function DisplayingProducts() {
 
@@ -27,9 +28,9 @@ export default function DisplayingProducts() {
                 (
                     items.map((item: ItemsFromData, index: number) => {
                         return (
-                            <div key={index}>
+                            <FadeInOnScroll key={index}>
                                 <ProductContainer item={item} />
-                            </div>
+                            </FadeInOnScroll>
                         )
                     })
                 )
