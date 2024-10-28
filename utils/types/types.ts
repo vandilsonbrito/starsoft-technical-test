@@ -28,3 +28,10 @@ export interface itemsToRedux {
     price: number,
     quantity?: number
 }
+
+export interface IsCheckoutOpen {
+    value: boolean;
+}
+export interface LimitState {
+    value: number;
+}
