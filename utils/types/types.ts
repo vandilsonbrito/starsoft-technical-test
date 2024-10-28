@@ -1,5 +1,5 @@
 export interface ProductsDataArray {
-    data: ItemsData[],
+    data: ItemsFromData[],
     metadata: {
         count: number,
         hasNextPage: boolean,
@@ -10,11 +10,21 @@ export interface ProductsDataArray {
     }
 }
 
-export interface ItemsData {
+export interface ItemsFromData {
     id: number,
     createdAt: string,
     name: string,
     image: string
     description: string;
     price: number
+}
+
+export interface itemsToRedux {
+    id: number,
+    createdAt: string,
+    name: string,
+    image: string
+    description: string;
+    price: number,
+    quantity?: number
 }
