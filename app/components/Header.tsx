@@ -2,12 +2,14 @@
 'use client';
 import { RootState } from '@/utils/redux/store';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleState } from '@/utils/redux/slices/isCheckoutOpen';
 
 export default function Header() {
 
   const cart = useSelector((state: RootState) => state.cartItems);
   const [totalQuantityOfItems, setTotalQuantityOfItems] = useState<number>(0);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if(cart) {
@@ -20,7 +22,8 @@ export default function Header() {
   const handleOpenCheckout = () => {
     const overlayCheckout = document.querySelector('.overlay-checkout');
     if (overlayCheckout) {
-      overlayCheckout.classList.add('open-checkout');
+      overlayCheckout.classList.add('show-container');
+      dispatch(toggleState());
     }
   }
 
