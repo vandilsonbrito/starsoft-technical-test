@@ -1,9 +1,5 @@
+import { LimitState } from '@/utils/types/types';
 import { createSlice  } from '@reduxjs/toolkit';
-
-
-interface LimitState {
-    value: number;
-}
 
 const initialState: LimitState = {
     value: 20,
@@ -13,7 +9,7 @@ const quanityItemsLimit = createSlice({
     name: 'page',
     initialState, 
     reducers: {
-        increment(state: { value: number }) {
+        increment(state: LimitState) {
             state.value += 10
         }
     }

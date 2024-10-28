@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { addToCart } from '@/utils/redux/actions/cartAction';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,6 +12,7 @@ export default function ProductContainer({ item }: { item: ItemsFromData }) {
     const dispatch = useDispatch();
     const cart = useSelector((state: RootState) => state.cartItems);
     const [isItItemInTheCart, setIsItItemInTheCart] = useState<boolean>(false);
+    const [isHovering, setIsHovering] = useState(false);
 
     useEffect(() => {
         if(cart.cartItems) {
@@ -24,9 +25,12 @@ export default function ProductContainer({ item }: { item: ItemsFromData }) {
                 setIsItItemInTheCart(false);
             }
         }
-    }, [cart, item.id])
+    }, [cart, item.id]);
 
-
+    const handleMouseEnter = () => setIsHovering(true);
+    
+    const handleMouseLeave = () => setIsHovering(false);
+    
     const handleBuyButton = () => {
         if(!isItItemInTheCart) {
             dispatch(addToCart(item))
@@ -39,9 +43,20 @@ export default function ProductContainer({ item }: { item: ItemsFromData }) {
                 <Image src={item.image} alt="Item" width={300} height={300} />
             </div>
             <div className="item-info-container">
-                <div className="item-info-wrapper">
+                <div 
+                    className="item-info-wrapper"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    >
                     <p className="item-title">{item.name}</p>
                     <p className="item-description">{item.description}</p>
+                    {isHovering && (
+                        <div
+                            className={`item-description-hover ${isHovering ? 'show' : ''}`}
+                            onMouseLeave={handleMouseLeave}>
+                            <p className="item-description-text-hover">{item.description}</p>
+                        </div>
+                    )}
                 </div>
 
                 <div className="item-price-wrapper">
