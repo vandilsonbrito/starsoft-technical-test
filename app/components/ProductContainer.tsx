@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { addToCart } from '@/utils/redux/actions/cartAction';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +16,6 @@ export default function ProductContainer({ item }: { item: ItemsFromData }) {
 
     useEffect(() => {
         if(cart.cartItems) {
-            console.log("cart.cartItems", cart.cartItems)
             const isTrue = cart.cartItems.some(product => product.id === item.id)
             if(isTrue) {
                 setIsItItemInTheCart(true);

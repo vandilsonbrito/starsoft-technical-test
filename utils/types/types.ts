@@ -32,6 +32,9 @@ export interface itemsToRedux {
 export interface IsCheckoutOpen {
     value: boolean;
 }
+export interface IsThereAPIdata {
+    value: boolean;
+}
 export interface LimitState {
     value: number;
 }

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import CheckoutItemContainer from './CheckoutItemContainer';
 import { useSelector, useDispatch } from 'react-redux';
+import { REMOVE_FROM_CART } from '@/utils/redux/actions/cartAction';
 import { RootState } from '../../utils/redux/store'; 
 import { itemsToRedux } from '@/utils/types/types';
 import ChooseAnItemToast from './ChooseAnItemToast';
@@ -38,11 +39,14 @@ export default function OverlayCheckout() {
 
     const handleCheckout = () => {
         setToast(false);
+
         if(cart.cartItems.length > 0) {
-          setButtonState('loading');
-          setTimeout(() => {
-            setButtonState('completed');
-          }, 1000);
+            setButtonState('loading');
+            setTimeout(() => {
+              setButtonState('completed');
+              cart.cartItems.map(item => dispatch({ type: REMOVE_FROM_CART, payload: { id: item.id } }));
+            }, 1000);
+
         }
         else {
           setToast(true);

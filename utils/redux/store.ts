@@ -4,11 +4,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { cartReducer } from './reducers/cartReducer';
 import quanityItemsLimit from './slices/quanityItemsLimitSlice'
 import isCheckoutOpen from './slices/isCheckoutOpen';
+import isThereAPIdata from './slices/isThereAPIdata';
 
 const rootReducer = combineReducers({
     cartItems: cartReducer,
     limit: quanityItemsLimit,
-    isCheckoutOpen: isCheckoutOpen
+    isCheckoutOpen: isCheckoutOpen,
+    isThereAPIdata: isThereAPIdata
 });
 
 const store = configureStore({
