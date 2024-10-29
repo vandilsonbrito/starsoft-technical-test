@@ -10,4 +10,6 @@ services:
       - "3000:3000"  # Mapeia a porta 3000 do container para a porta 3000 do host
     volumes:
       - .:/app  # Monta o diretório atual no container para permitir hot reload
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
     command: npm run dev  # Comando para rodar o Next.js em modo de desenvolvimento
