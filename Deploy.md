@@ -34,14 +34,15 @@ No terminal, navegue até o diretório do projeto e execute o comando para inici
  
       vercel
 
+--- 
+Siga as instruções exibidas no terminal:
+A Vercel CLI solicitará que você escolha uma conta e um projeto (ou crie um novo).
+Responda yes quando perguntado se deseja associar o diretório ao projeto.
+
 Para deploy em produção:
  
       vercel --prod
  
 
 --- 
-Siga as instruções exibidas no terminal:
-A Vercel CLI solicitará que você escolha uma conta e um projeto (ou crie um novo).
-Responda yes quando perguntado se deseja associar o diretório ao projeto.
-
 Após o processo de deploy, a Vercel fornecerá uma URL pública para a aplicação, onde ela estará acessível, ex: `https://nome-do-projeto.vercel.app`.
