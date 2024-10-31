@@ -45,6 +45,7 @@ export default function OverlayCheckout() {
             setTimeout(() => {
               setButtonState('completed');
               cart.cartItems.map(item => dispatch({ type: REMOVE_FROM_CART, payload: { id: item.id } }));
+              setTotalValue(0);
             }, 1000);
 
         }
