@@ -8,6 +8,7 @@ export interface ProductsDataArray {
         page: number,
         pageCount: number
     }
+    error?: string
 }
 
 export interface ItemsFromData {
