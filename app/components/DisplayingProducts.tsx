@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useProductData } from '@/utils/hooks/useProductsData';
 import ProductContainer from './ProductContainer';
 import { ItemsFromData } from '@/utils/types/types';
@@ -13,44 +13,35 @@ export default function DisplayingProducts() {
 
     const dispatch = useDispatch();
     const limitValue = useSelector((state: RootState) => state.limit.value);
-    const { data, error } = useProductData(limitValue);
-    const [items, setItems] = useState<ItemsFromData[] | []>([])
+    const { data: productData, error } = useProductData(limitValue);
+    const [items, setItems] = useState<ItemsFromData[]>([]);
 
     useEffect(() => {
-        console.log("Data", data)
-        if(data) {
+        console.log("Data", productData)
+        if(productData) {
             dispatch(setIsThereData(true));
-            setItems(data.data)
+            setItems(productData.data)
         }
-    }, [data]);
+    }, [dispatch, productData]);
 
     useEffect(() => {
-        if(error) {
+        if(error || productData?.error) {
             dispatch(setIsThereData(false));
         }
-    }, [error]);
+    }, [dispatch, productData, error]);
 
 
     return (
-        <>
-            {
-                items.length > 0 ? 
-                (
-                    items.map((item: ItemsFromData, index: number) => {
-                        return (
-                            <FadeInOnScroll key={index}>
-                                <ProductContainer item={item} />
-                            </FadeInOnScroll>
-                        )
-                    })
-                )
-                :
-                (
-                    <>
-                        <ProductFallbackContainer/>
-                    </>
-                )
-            }
-        </>
+        <Suspense fallback={<ProductFallbackContainer />}>
+            {items?.length > 0 ? (
+                items.map((item, index) => (
+                    <FadeInOnScroll key={item.id || index}>
+                        <ProductContainer item={item} />
+                    </FadeInOnScroll>
+                ))
+            ) : (
+                <ProductFallbackContainer />
+            )}
+        </Suspense>
     )
 }
